@@ -1,27 +1,28 @@
 import React from "react";
-import { useState } from "react";
-import { Outlet, useParams } from "react-router-dom";
+import { Outlet, useLoaderData} from "react-router-dom";
 import { Link,NavLink } from "react-router-dom";
+import { getHostVans } from "../api";
+import { requireAuth } from "../utilityfunction";
+
+export async function hostvanDetailLoader({params}){
+  await requireAuth()
+  return getHostVans(params.id)
+}
+
+
+
 export default function HostVanDetails() {
-  const [currentVan, setcurrentVan] = useState([]);
 
-  const { id } = useParams();
-  React.useEffect(() => {
-    fetch(`/api/host/vans/${id}`)
-      .then((res) => res.json())
-      .then((data) => setcurrentVan(data.vans));
-  }, [id]);
+  const currentVan =useLoaderData()
 
-  if (!currentVan) {
-    return <h1>Loading...</h1>;
-  }
 
+ 
   return (
     <section>
       <Link
         to=".."
         // ie ,the link should go one step back to parent directory, and not relative to parent route
-        relative="path"
+        // relative="path"
         className="back-button"
       >
         &larr; <span>Back to all vans</span>

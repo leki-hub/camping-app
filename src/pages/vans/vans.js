@@ -1,9 +1,17 @@
 import React from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useLoaderData, useSearchParams } from "react-router-dom";
+import { getVans } from "../api";
+
+
+export function loaderVans() {
+  return getVans()
+}
 
 export default function Vans() {
-  const [vanis, setVans] = React.useState([]);
-  
+  // const [vanis, setVans] = React.useState([]);
+  const [error] = React.useState(null)
+  // we use useLoaderData hook to save data obtained from the getVans() promise function
+  const vans = useLoaderData()
 
 
   const [searchParams, setSearchParams] = useSearchParams()
@@ -11,13 +19,9 @@ export default function Vans() {
 
     console.log(typeFilter)
 
-  React.useEffect(() => {
-    fetch("/api/vans")
-      .then((res) => res.json())
-      .then((data) => setVans(data.vans));
-  }, []);
 
-const filteredMap= typeFilter?vanis.filter(char=>char.type===typeFilter):vanis
+
+const filteredMap= typeFilter?vans.filter(char=>char.type===typeFilter):vans
 
 
   const vanElements = filteredMap.map((van) => (
@@ -53,10 +57,14 @@ const filteredMap= typeFilter?vanis.filter(char=>char.type===typeFilter):vanis
     })
 }
 
+if (error) {
+  return <h1>There was an error: {error.message}</h1>
+}
+
 
   return (
     <div className="van-list-container">
-      <h1> Explore our Van Options </h1>
+      <h1> Explore our Camping Options </h1>
        <div className="van-list-filter-buttons">
        <button
      onClick={()=>{handleFilterChange("type","simple")} }   className={
@@ -64,10 +72,10 @@ const filteredMap= typeFilter?vanis.filter(char=>char.type===typeFilter):vanis
   }
      >Simple</button>
         <button
-     onClick={()=>{handleFilterChange("type" ,"rugged")}}  className={
-      `van-type simple ${typeFilter === "rugged" ? "selected" : ""}`
+     onClick={()=>{handleFilterChange("type" ,"standard")}}  className={
+      `van-type simple ${typeFilter === "standard" ? "selected" : ""}`
   }
-     >Rugged</button>
+     >Standard</button>
              <button
      onClick={()=>{handleFilterChange("type","luxury")}}  className={
       `van-type simple ${typeFilter === "luxury" ? "selected" : ""}`
