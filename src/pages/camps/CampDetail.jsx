@@ -1,16 +1,30 @@
 import React from "react"
 // import { useState } from "react"
 import { Link,  useLoaderData,  useLocation } from "react-router-dom"
-import { getVans } from "../api"
+
+
+async function getCamps(id) {
+    let url = `/api/camps/${id}`
+    const res = await fetch(url)
+    if (!res.ok) {
+        return {
+            message: "Failed to fetch vans", 
+            statusText: res.statusText,
+            status: res.status
+        }
+    }
+    const data = await res.json()
+    return data.camps
+}
 
 
 export function loaderVanDetail({params}) {
    
-    return getVans(params.id)
+    return getCamps(params.id)
   }
 
-export default function VanDetail() {
-    const van = useLoaderData()
+export default function CampDetail() {
+    const camp = useLoaderData()
     // we use the uselocation hook to receive state send alongside the link that directed to this page ,ie link in Van page, it is esentialy to help identify initially clicked state 
   const location = useLocation()
 
@@ -18,7 +32,7 @@ export default function VanDetail() {
     const search = location.state?.searc || ""
     const type= location.state?.type || "all"
     return(
-        <div className="van-detail-container">
+        <div className="camp-detail-container">
             <Link
        
                 to={`..${search}`}
@@ -34,13 +48,13 @@ export default function VanDetail() {
 
      
             
-            <div className="van-detail">
-                <img src={van.imageUrl} alt=""/>
-                <i className={`van-type ${van.type} selected`}>{van.type}</i>
-                <h2>{van.name}</h2>
+            <div className="camp-detail">
+                <img src={camp.imageUrl} alt=""/>
+                <i className={`camp-type ${camp.type} selected`}>{camp.type}</i>
+                <h2>{camp.name}</h2>
             
-                <p className="van-price"><span>${van.price}</span>/day</p>
-                <p>{van.description}</p>
+                <p className="camp-price"><span>${camp.price}</span>/day</p>
+                <p>{camp.description}</p>
                 <button className="link-button">-Book with us-</button>
                
             </div>

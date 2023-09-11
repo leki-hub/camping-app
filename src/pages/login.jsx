@@ -1,10 +1,28 @@
 import React from "react"
 import {useLoaderData, useNavigate } from "react-router-dom"
-import { loginUser } from "./api"
+
 
 export function loaderLogin({ request }) {
     return new URL(request.url).searchParams.get("message")
 }
+
+async function loginUser(creds) {
+    const res = await fetch("/api/login",
+        { method: "post", body: JSON.stringify(creds) }
+    )
+    const data = await res.json()
+
+    if (!res.ok) {
+        return {
+            message: data.message,
+            statusText: res.statusText,
+            status: res.status
+        }
+    }
+
+    return data
+}
+
 
 export default function Login() {
     const [loginFormData, setLoginFormData] = React.useState({ email: "", password: "" })

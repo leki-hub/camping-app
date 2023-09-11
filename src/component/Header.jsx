@@ -11,7 +11,7 @@ export default function Header(){
     return(
         <>
         <header>
-        <Link className="site-logo" to="/">Home-Lesmo Safaris</Link>
+        <Link className="site-logo" to="/">Lesmo Safaris</Link>
         <nav>
            <NavLink className={({isActive}) => isActive ? "active-link" : null} to="/about">About</NavLink>
            <NavLink className={({isActive}) => isActive ? "active-link" : null} to="/vans">Camps</NavLink>

@@ -9,15 +9,16 @@ export default function About() {
         alt=""
       />
       <div className="about-page-content">
-        <h1>Don’t squeeze in a sedan when you could relax in a van.</h1>
+        <h1>Travel with us and explore the magical Kenya</h1>
         <p>
-          Our mission is to enliven your road trip with the perfect travel van
-          rental. Our vans are recertified before each trip to ensure your
-          travel plans can go off without a hitch. (Hitch costs extra 😉)
+          Tourism in Kenya is a significant contributor to the country's economy
+          and a major driver of employment. Known for its rich biodiversity,
+          stunning landscapes, and vibrant culture, Kenya is a sought-after
+          destination for travelers from around the world.
         </p>
         <p>
-          Our team is full of vanlife enthusiasts who know firsthand the magic
-          of touring the world on 4 wheels.
+          Historically, Kenya is the cradle of mankind, Home Lesmo Safaris 
+          is passionate to help you have an lifelong experience.  
         </p>
       </div>
       <div className="about-page-cta">
