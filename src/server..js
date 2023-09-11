@@ -106,7 +106,6 @@ createServer({
     this.logging = false;
 
     this.get("/camps", (schema, request) => {
-      // return new Response(400, {}, {error: "Error fetching data"})
       return schema.camps.all();
     });
 
@@ -116,22 +115,19 @@ createServer({
     });
 
     this.get("/host/camps", (schema, request) => {
-      // Hard-code the hostId for now
+
       return schema.camps.where({ hostId: "123" });
-      // return schema.vans.all()
+
     });
 
     this.get("/host/camps/:id", (schema, request) => {
-      // Hard-code the hostId for now
       const id = request.params.id;
       return schema.camps.findBy({ id, hostId: "123" });
     });
 
     this.post("/login", (schema, request) => {
       const { email, password } = JSON.parse(request.requestBody);
-      // This is an extremely naive version of authentication. Please don't
-      // do this in the real world, and never save raw text passwords
-      // in your database 😇
+
       const foundUser = schema.users.findBy({ email, password });
       if (!foundUser) {
         return new Response(
@@ -140,12 +136,10 @@ createServer({
           { message: "No user with those credentials found!" }
         );
       }
-
-      // At the very least, don't send the password back to the client 😅
       foundUser.password = undefined;
       return {
         user: foundUser,
-        token: "Enjoy your pizza, here's your tokens.",
+        token: "Enjoy your picnic,",
       };
     });
   },

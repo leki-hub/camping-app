@@ -6,9 +6,9 @@ export function loaderLogin({ request }) {
     return new URL(request.url).searchParams.get("message")
 }
 
-async function loginUser(creds) {
+async function loginUser(credentials) {
     const res = await fetch("/api/login",
-        { method: "post", body: JSON.stringify(creds) }
+        { method: "post", body: JSON.stringify(credentials) }
     )
     const data = await res.json()
 
@@ -35,7 +35,7 @@ export default function Login() {
         setStatus("submitting")
         setError(null)
         loginUser(loginFormData)
-            .then(data => navigate("/host"))
+            .then(() => navigate("/host"))
             .catch(err => setError(err))
             .finally(() => setStatus("idle"))
     }
@@ -84,3 +84,12 @@ export default function Login() {
         </div>
     )
 }
+
+
+
+
+
+
+
+
+

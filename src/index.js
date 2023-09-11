@@ -33,7 +33,8 @@ let router = createBrowserRouter(
       <Route index element={<Home />} />
       <Route path="about" element={<About />} />
       <Route path="login" element={<Login />} 
-         loader={loaderLogin}  
+         loader={loaderLogin}
+        
       />
       <Route
         path="vans"
@@ -53,7 +54,6 @@ let router = createBrowserRouter(
         <Route
           path="/host/dashboard"
           element={<Dashboard />}
-          // loader={async () => await requireAuth()}
           errorElement={<Error />}
         />
         <Route path="income" element={<Income />} />
@@ -69,18 +69,16 @@ let router = createBrowserRouter(
           <Route
             index
             element={<CampInfo />}
-            // loader={async () => await requireAuth()}
+           
           />
           <Route
             path="price"
             element={<CampPrices />}
-            // loader={async () => await requireAuth()}
+          
           />
 
           <Route path="photos" element={<CampPhotos />} 
-          //   loader={ async()=>
-          //  await   requireAuth()   
-          //    } 
+          
           />
           <Route />
         </Route>

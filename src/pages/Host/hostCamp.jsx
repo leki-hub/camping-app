@@ -1,6 +1,5 @@
 import React from "react"
 import { Link, useLoaderData } from "react-router-dom"
-// import { requireAuth } from "../utilityfunction"
 
  async function getHostCamps() {
     const url =  "/api/host/camps"
@@ -17,9 +16,8 @@ import { Link, useLoaderData } from "react-router-dom"
     
 }
 
-export  function hostcampLoader() {
+export  async function hostcampLoader() {
   
-    // await requireAuth()
     return getHostCamps()
    
    

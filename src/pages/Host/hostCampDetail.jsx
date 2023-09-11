@@ -1,7 +1,6 @@
 import React from "react";
 import { Outlet, useLoaderData} from "react-router-dom";
 import { Link,NavLink } from "react-router-dom";
-// import { requireAuth } from "../utilityfunction";
 
 async function getHostVans(id) {
   const url = `/api/host/camps/${id}` 
@@ -18,8 +17,8 @@ async function getHostVans(id) {
 }
 
 
-export function hostvanDetailLoader({params}){
-  // await requireAuth()
+export async function hostvanDetailLoader({params}){
+
   return getHostVans(params.id)
 }
 
