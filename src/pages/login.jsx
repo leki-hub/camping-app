@@ -2,16 +2,16 @@ import React from "react"
 import {useLoaderData, useNavigate } from "react-router-dom"
 
 
-export function loaderLogin({ request }) {
-    return new URL(request.url).searchParams.get("message")
-}
+// export function loaderLogin({ request }) {
+//     return new URL(request.url).searchParams.get("message")
+// }
 
 async function loginUser(credentials) {
     const res = await fetch("/api/login",
         { method: "post", body: JSON.stringify(credentials) }
     )
     const data = await res.json()
-
+    console.log(data)
     if (!res.ok) {
         return {
             message: data.message,
@@ -52,8 +52,8 @@ export default function Login() {
         <div className="login-container">
         
             <h1>Sign in to your account</h1>
-            {message && <h3 className="red">{message}</h3>}
-            {error && <h3 className="red">{error.message}</h3>}
+            {message && <h3 className="error">{message}</h3>}
+            {error && <h3 className="error">{error.message}</h3>}
 
             <form onSubmit={handleSubmit} className="login-form">
                 <input

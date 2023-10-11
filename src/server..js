@@ -95,9 +95,9 @@ createServer({
     });
     server.create("user", {
       id: "123",
-      email: "b@b.com",
-      password: "p123",
-      name: "Bob",
+      email: "emmanuel@gmail.com",
+      password: "p1234",
+      name: "manu",
     });
   },
 

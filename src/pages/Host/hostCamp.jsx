@@ -31,7 +31,7 @@ console.log(data)
 
     const hostCamps = data.map(camp => (
         <Link
-            to={`/host/vans/${camp.id}`}
+            to={`/host/camps/${camp.id}`}
             key={camp.id}
             className="host-camp-link-wrapper"
         >

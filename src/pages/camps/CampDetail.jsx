@@ -25,10 +25,8 @@ export function loaderVanDetail({params}) {
 
 export default function CampDetail() {
     const camp = useLoaderData()
-    // we use the uselocation hook to receive state send alongside the link that directed to this page ,ie link in Van page, it is esentialy to help identify initially clicked state 
   const location = useLocation()
 
-//    optional chaining. ie, if state property exists in location object, then rerturc its searc property, otherwise return null, it works on same way as  const search = location.state && location.state.search || ""
     const search = location.state?.searc || ""
     const type= location.state?.type || "all"
     return(

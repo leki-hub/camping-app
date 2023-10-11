@@ -26,7 +26,7 @@ export default function Home() {
       <p>
         Add adventure to your life by joining the #Lesmo movement.Choose your destination ,we make your perfect road trip.
       </p>
-      <Link to="/vans"> Find Your destination </Link>
+      <Link to="/camps"> Find Your destination </Link>
     </div>
   );
 }

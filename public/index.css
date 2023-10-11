@@ -84,6 +84,7 @@ footer {
   align-items: center;
   margin-top: auto;
   font-weight: 500;
+  width: 100%;
 }
 
 .link-button {
@@ -541,6 +542,6 @@ i[class*='van-type-'] {
   color: white;
   font-family: "Inter", sans-serif;
 }
-.red {
-  color: red;
+.error {
+  color: rgb(255, 30, 0);
 }

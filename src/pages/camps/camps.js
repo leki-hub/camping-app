@@ -39,7 +39,7 @@ const filteredMap= typeFilter?data.filter(char=>char.type===typeFilter):data
 
   const campElements = filteredMap.map((camp) => (
         <div className="camp-tile" key={camp.id}>
-          <Link to={`/vans/${camp.id}`}
+          <Link to={`/camps/${camp.id}`}
           // passing the state along with the link , ie in vanDetail page
           state={{ searc: `?${searchParams.toString()}` ,type:typeFilter }}
           >
