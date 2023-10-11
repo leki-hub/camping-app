@@ -22,7 +22,7 @@ import HostCamps, { hostcampLoader} from "./pages/Host/hostCamp";
 import HostCampDetails, {hostvanDetailLoader} from "./pages/Host/hostCampDetail";
 import NotFound from "./pages/notFound";
 import Error from "./component/error";
-import Login, { loaderLogin } from "./pages/login";
+import Login from "./pages/login";
 import Camps, { loaderCamps } from "./pages/camps/camps";
 import CampPhotos from "./pages/Host/hostCampPhoto";
 import CampInfo from "./pages/Host/hostCampinfo";
