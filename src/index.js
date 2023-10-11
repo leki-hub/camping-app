@@ -5,7 +5,7 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
   RouterProvider,
-  HashRouter
+  
 } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -28,7 +28,7 @@ import CampPhotos from "./pages/Host/hostCampPhoto";
 import CampInfo from "./pages/Host/hostCampinfo";
 import CampPrices from "./pages/Host/hostCampPricing";
 
-let router =  HashRouter(
+let router =  createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route index element={<Home />} />
